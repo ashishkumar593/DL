@@ -1,4 +1,5 @@
-﻿import torch
+# model.py
+import torch
 import torch.nn as nn
 
 class PPG1DCNN(nn.Module):
