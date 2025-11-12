@@ -11,6 +11,13 @@ from queue import Queue, Empty
 from flask import Flask, request, jsonify
 import time, os, csv, pandas as pd, numpy as np, plotly.graph_objs as go
 
+import torch
+from model import PPG1DCNN
+model = PPG1DCNN()
+model.load_state_dict(torch.load("model.pt", map_location="cpu"))
+model.eval()
+
+
 FLASK_PORT = 5000
 LOG_CSV = "incoming_log.csv"
 POLL_INTERVAL = 1.0  # seconds
